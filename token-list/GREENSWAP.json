@@ -1,0 +1,60 @@
+{
+  "name": "GreenSwap",
+  "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/compound-interface.svg",
+  "keywords": ["Ibrahimijai", "ibrahimijai"],
+  "timestamp": "2021-05-27T20:37:00.000+00:00",
+  "tokens": [
+    {
+      "chainId": 84532,
+      "address": "0xcD47821BF5096914858e94EDFd4218B6f5Ab3635",
+      "name": "Dai Stablecoin",
+      "symbol": "DAI",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_DAI.svg"
+    },
+    {
+      "chainId": 84532,
+      "address": "0xAb2580B25C05031f318003697E43f5aF83AA8886",
+      "name": "Tether USD",
+      "symbol": "USDT",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_USDT.svg"
+    },
+    {
+      "chainId": 84532,
+      "address": "0x6b5C3fC0EdB93115dCA94221E6826dAaC296AA9c",
+      "name": "Basic Attention Token",
+      "symbol": "BAT",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_BAT.svg"
+    },
+    {
+      "chainId": 84532,
+      "address": "0x45e821F6c6425204928a8297eC9188613B3a4D0d",
+      "name": "Wrapped BTC",
+      "symbol": "WBTC",
+      "decimals": 18
+    },
+    {
+      "chainId": 84532,
+      "address": "0xFeCae8c984D55792032F5cC62C33B6253770F10a",
+      "name": "ChainLink Token",
+      "symbol": "LINK",
+      "decimals": 18
+    },
+    {
+      "chainId": 84532,
+      "address": "0x4200000000000000000000000000000000000006",
+      "name": "Wrapped Ether",
+      "symbol": "WETH",
+      "decimals": 18
+    }
+
+    
+  ],
+  "version": {
+    "major": 2,
+    "minor": 0,
+    "patch": 0
+  }
+}
