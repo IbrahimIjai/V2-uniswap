@@ -1,4 +1,4 @@
-import { TokenAmount, Pair, Currency } from '@uniswap/sdk'
+import { TokenAmount, Pair, Currency,  } from '@uniswap/sdk'
 import { useMemo } from 'react'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { Interface } from '@ethersproject/abi'
@@ -6,6 +6,9 @@ import { useActiveWeb3React } from '../hooks'
 
 import { useMultipleContractSingleData } from '../state/multicall/hooks'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
+
+// import { pack, keccak256 } from '@ethersproject/solidity'
+// import { getCreate2Address } from '@ethersproject/address'
 
 const PAIR_INTERFACE = new Interface(IUniswapV2PairABI)
 
@@ -19,6 +22,7 @@ export enum PairState {
 export function usePairs(currencies: [Currency | undefined, Currency | undefined][]): [PairState, Pair | null][] {
   const { chainId } = useActiveWeb3React()
 
+  console.log('this is pairs being used ##reserves', currencies)
   const tokens = useMemo(
     () =>
       currencies.map(([currencyA, currencyB]) => [
@@ -28,15 +32,31 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
     [chainId, currencies]
   )
 
+  console.log('this are tokens to whose pairs to begenerated ###reserves.ts', tokens)
+
   const pairAddresses = useMemo(
     () =>
       tokens.map(([tokenA, tokenB]) => {
+        // const pairaddressGenerated = getCreate2Address(
+        //   FACTORY_ADDRESS,
+        //   keccak256(['bytes'], [pack(['address', 'address'], [tokenA?.address, tokenB?.address])]),
+        //   INIT_CODE_HASH
+        // )
+
+        // console.log('An attempt to hardcode pairs ###reserves.ts', pairaddressGenerated)
+
+        console.log('this is tokensaddress', tokenA?.address, tokenB?.address)
         return tokenA && tokenB && !tokenA.equals(tokenB) ? Pair.getAddress(tokenA, tokenB) : undefined
       }),
     [tokens]
   )
 
+  // const hardcodedpairaddress: (string | undefined)[] = ['0x16ed3DcAFb207A470F19634176838737D042B104']
+  console.log('pair addresses ###reserves.ts', pairAddresses)
+
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
+
+  console.log('RESULTS from useMulticall ###reserves', results)
 
   return useMemo(() => {
     return results.map((result, i) => {

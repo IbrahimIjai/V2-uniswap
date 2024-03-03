@@ -49,8 +49,6 @@
       "symbol": "WETH",
       "decimals": 18
     }
-
-    
   ],
   "version": {
     "major": 2,

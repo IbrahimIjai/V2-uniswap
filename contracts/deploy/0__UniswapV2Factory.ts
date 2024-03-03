@@ -14,24 +14,24 @@ HardhatRuntimeEnvironment) {
 
   const { deployer, dev } = await getNamedAccounts();
 
-  // await deploy("UniswapV2Factory", {
-  //   contract: {
-  //     abi,
-  //     bytecode,
-  //   },
-  //   from: deployer,
-  //   args: [dev],
-  //   log: true,
-  //   // deterministicDeployment: false,
-  //   autoMine: true,
-  // });
+  await deploy("UniswapV2Factory", {
+    contract: {
+      abi,
+      bytecode,
+    },
+    from: deployer,
+    args: [dev],
+    log: true,
+    // deterministicDeployment: false,
+    autoMine: true,
+  });
 
-  // const factorycont = await ethers.getContract("UniswapV2Factory", deployer);
+  const factorycont = await ethers.getContract("UniswapV2Factory", deployer);
 
-  // console.log("this is FACTORY ADDRESS", factorycont.address);
+  console.log("this is FACTORY ADDRESS", factorycont.address);
 
-  // const Initcode = await factorycont.pairCodeHash();
-  // console.log("this is Initcode Initcode", Initcode);
+  const Initcode = await factorycont.pairCodeHash();
+  console.log("this is Initcode Initcode", Initcode);
 };
 
 func.tags = ["UniswapV2Factory", "AMM"];

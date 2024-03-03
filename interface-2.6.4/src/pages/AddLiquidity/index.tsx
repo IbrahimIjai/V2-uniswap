@@ -306,6 +306,7 @@ export default function AddLiquidity({
   return (
     <>
       <AppBody>
+        <ButtonPrimary>Get Pairs</ButtonPrimary>
         <AddRemoveTabs adding={true} />
         <Wrapper>
           <TransactionConfirmationModal
